@@ -233,6 +233,25 @@ public struct ERC20Token: CurrencyDef {
     }
 }
 
+// Nimble -compatible currency type
+public struct Nimble: CurrencyDef {
+    public let name: String
+    public let code: String
+    public let symbol: String
+    public let colors: (UIColor, UIColor)
+    
+    public let address: String
+    public let decimals: Int
+    
+    public var commonUnit: CurrencyUnit {
+        return TokenUnit(decimals: decimals, name: code)
+    }
+    
+    public func isValidAddress(_ address: String) -> Bool {
+        return address.isValidAddress
+    }
+}
+
 extension ERC20Token {
     init(tokenData: StoredTokenData) {
         self.init(name: tokenData.name,
@@ -274,4 +293,10 @@ public struct Currencies {
                                 address: E.isTestnet ? "0x7108ca7c4718efa810457f228305c9c71390931a" :  "0x558ec3152e2eb2174905cd19aea4e34a23de9ad6",
                                 abi: ERC20Token.standardAbi,
                                 decimals: 18)
+    static let nmbl = Nimble(name: "Nimble",
+                             code: "nmbl",
+                             symbol: S.Symbols.nmbl,
+                             colors: (UIColor.fromHex("f276b6"), UIColor.fromHex("ff5193")),
+                             address: "0xb6a53b84e5744bbd5858a8653c0967c924a67827",
+                             decimals: 7)
 }

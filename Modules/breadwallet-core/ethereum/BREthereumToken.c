@@ -1095,6 +1095,19 @@ static struct BREthereumTokenRecord tokens[] = {
     },
     
     {
+        "0xb6a53b84e5744bbd5858a8653c0967c924a67827",
+        "NMBL",
+        "Nimble",
+        "",
+        7,
+        "#f276b6",
+        "#f276b6",
+        { TOKEN_BRD_DEFAULT_GAS_LIMIT },
+        { { { .u64 = {TOKEN_BRD_DEFAULT_GAS_PRICE_IN_WEI_UINT64, 0, 0, 0}}}},
+        1
+    },
+    
+    {
         "0x1776e1F26f98b1A5dF9cD347953a26dd3Cb46671",
         "NMR",
         "Numeraire",
